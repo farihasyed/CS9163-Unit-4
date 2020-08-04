@@ -1,0 +1,40 @@
+version: "3.8"
+services:
+  web:
+    build: .
+    deploy:
+      replicas: 4
+      resources:
+        limits:
+          cpus: '0.20'
+          memory: 20M
+        reservations:
+          cpus: '0.10'
+          memory: 10M
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      PYTHONUNBUFFERED: 1
+      FLASK_ENV: "development"
+    secrets:
+      - admin_username
+      - admin_password
+      - admin_phone
+      - database_path
+      - key
+      - flask_key
+secrets:
+  admin_username:
+    file: secrets/admin_username.txt
+  admin_password:
+    file: secrets/admin_password.txt
+  admin_phone:
+    file: secrets/admin_phone.txt
+  database_path:
+    file: secrets/database_path.txt
+  key:
+    file: secrets/key.txt
+  flask_key:
+    file: secrets/flask_key.txt
