@@ -1,9 +1,0 @@
-pytest~=5.4.3
-flask~=1.1.2
-flask-table
-flask-wtf
-bleach~=3.1.5
-tox
-WTForms~=2.3.1
-tox-travis
-cryptography~=2.9.2
