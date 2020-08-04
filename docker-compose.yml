@@ -2,6 +2,7 @@ version: "3.8"
 services:
   web:
     build: .
+    image: farihasyed/cs9163-unit-4
     deploy:
       replicas: 4
       resources:
